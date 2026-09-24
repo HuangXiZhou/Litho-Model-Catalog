@@ -12,3 +12,5 @@ No catalog, package manifest, model weights, signing key, or public trust root i
 - `PUBLISHING.md`: release, signing, and repository controls.
 
 Model binaries are hosted separately at immutable HTTPS object URLs. This repository must not contain application source, application-specific descriptions or identifiers, internal design material, logs, credentials, private keys, or unpublished test fixtures.
+
+The schemas are client-neutral. Task identifiers, locale tags, package categories, and license identifiers are extensible metadata; client-specific mappings and supported-feature lists belong in the client application and must not be published here.
