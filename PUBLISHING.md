@@ -18,6 +18,13 @@ URLs must use HTTPS without embedded credentials. Each file may have one primary
 
 Reject publication if evidence is missing. A metadata entry alone does not establish that an artifact is legal, compatible, or ready for use.
 
+## Regional delivery
+
+- Catalog and artifact endpoints must be tested from mainland China and the intended overseas regions before a package is announced as generally available.
+- Use a stable HTTPS hostname with a delivery path suited to both mainland and overseas users. Verify required domain filings and service eligibility before enabling mainland acceleration.
+- The release gate must include at least two mainland carrier networks and two overseas regions. Confirm DNS and TLS, a complete object download with matching SHA-256, and a resumed download that returns an exact HTTP 206 `Content-Range`. Compare mirror bytes; do not infer regional availability from a provider's global footprint or brand.
+- These coverage counts are a repository release rule, not an industry-wide standard. A failed or untested region must be reported as unsupported until it passes.
+
 ## Signing
 
 - Use Ed25519. Keep private keys offline in a dedicated signing environment; never store them in this repository, source control, CI variables, or issue attachments.
