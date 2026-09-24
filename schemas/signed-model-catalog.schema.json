@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/HuangXiZhou/Litho-Model-Catalog/main/schemas/signed-model-catalog.schema.json",
+  "title": "Signed model package catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "sequence",
+    "issuedAt",
+    "expiresAt",
+    "keyID",
+    "signature",
+    "packages"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "keyID": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,100}$"
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]{86}==$"
+    },
+    "packages": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "$ref": "#/$defs/catalogPackage"
+      }
+    }
+  },
+  "$defs": {
+    "catalogPackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signedManifest",
+        "tier",
+        "type",
+        "publishedAt"
+      ],
+      "properties": {
+        "signedManifest": {
+          "$ref": "signed-model-package.schema.json"
+        },
+        "tier": {
+          "enum": [
+            "essential",
+            "enhancement"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
