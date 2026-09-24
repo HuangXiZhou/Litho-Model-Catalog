@@ -6,6 +6,7 @@ These rules apply to every catalog and package manifest published here.
 
 - Publish only schemas, signed catalog JSON, signed package-manifest JSON, and required licensing or attribution material.
 - Do not publish application source, application-specific descriptions or identifiers, internal architecture, build configuration, customer or evaluation data, logs, test fixtures, or credentials.
+- Keep schema vocabularies generic and extensible. Do not encode one application's supported task, locale, category, or license allowlists in shared metadata schemas.
 - Do not commit private keys, seed phrases, access tokens, private trust-store material, or signing-machine configuration. A public signature and non-secret key identifier are allowed.
 - Do not create placeholder packages, fabricated signatures, or entries that point to unreleased artifacts.
 - Keep model binaries outside this Git repository. Use immutable HTTPS objects for artifacts.

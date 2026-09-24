@@ -66,13 +66,8 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "enum": [
-          "asr",
-          "align",
-          "vad",
-          "translate",
-          "verify"
-        ]
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]{0,63}$"
       }
     },
     "languages": {
@@ -80,21 +75,14 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "enum": [
-          "zh",
-          "en",
-          "ja",
-          "ko",
-          "es"
-        ]
+        "type": "string",
+        "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$"
       }
     },
     "license": {
-      "enum": [
-        "MIT",
-        "Apache-2.0",
-        "CC-BY-4.0"
-      ]
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
     },
     "files": {
       "type": "array",
